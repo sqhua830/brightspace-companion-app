@@ -1,0 +1,277 @@
+<title>Brightspace Companion Download</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf7f2;
+    --surface: #ffffff;
+    --surface-edge: #eee8dc;
+    --ink: #26241f;
+    --ink-muted: #6e6a61;
+    --ink-faint: #948f83;
+    --accent: #2f5c8a;
+    --accent-ink: #1f4266;
+    --accent-soft: #e7eef5;
+    --rule: #e4dfd5;
+    --good: #3d7a5a;
+    --good-soft: #e6f1ea;
+    --warn: #9a6a1f;
+    --warn-soft: #f5edda;
+    --code-bg: #f1ece0;
+    --shadow: 0 1px 2px rgba(38, 36, 31, 0.04), 0 8px 24px rgba(38, 36, 31, 0.06);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17181b;
+      --surface: #1e2024;
+      --surface-edge: #2b2d32;
+      --ink: #edeae3;
+      --ink-muted: #a6a29a;
+      --ink-faint: #7c7870;
+      --accent: #7fb0e0;
+      --accent-ink: #bcd8f2;
+      --accent-soft: #23364a;
+      --rule: #303339;
+      --good: #6fbf96;
+      --good-soft: #1f3129;
+      --warn: #d7ab5c;
+      --warn-soft: #362c1a;
+      --code-bg: #26282d;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #17181b; --surface: #1e2024; --surface-edge: #2b2d32; --ink: #edeae3;
+    --ink-muted: #a6a29a; --ink-faint: #7c7870; --accent: #7fb0e0; --accent-ink: #bcd8f2;
+    --accent-soft: #23364a; --rule: #303339; --good: #6fbf96; --good-soft: #1f3129;
+    --warn: #d7ab5c; --warn-soft: #362c1a; --code-bg: #26282d;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 680px; margin: 0 auto; padding: 64px 24px 96px; }
+
+  .hero { text-align: center; margin-bottom: 40px; }
+  .hero-icon {
+    width: 76px; height: 76px; border-radius: 20px;
+    background: linear-gradient(155deg, var(--accent) 0%, var(--accent-ink) 100%);
+    margin: 0 auto 20px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: var(--shadow);
+    font-family: "Source Serif 4", serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: #fff;
+  }
+  h1 {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin: 0 0 10px;
+    text-wrap: balance;
+  }
+  .tagline {
+    color: var(--ink-muted);
+    font-size: 16.5px;
+    max-width: 46ch;
+    margin: 0 auto 28px;
+  }
+
+  .download-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--accent);
+    color: #fff;
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 14px 28px;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: var(--shadow);
+    transition: transform 0.12s ease;
+  }
+  .download-button:hover { transform: translateY(-1px); }
+  .download-button .glyph { font-size: 18px; }
+
+  .meta-row {
+    margin-top: 14px;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .callout {
+    background: var(--warn-soft);
+    border: 1px solid color-mix(in srgb, var(--warn) 30%, transparent);
+    border-radius: 14px;
+    padding: 20px 22px;
+    margin: 40px 0;
+  }
+  .callout h2 {
+    font-family: "Source Serif 4", serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--warn);
+    margin: 0 0 10px;
+  }
+  .callout p { margin: 0; font-size: 14.5px; color: var(--ink); }
+  .callout p + p { margin-top: 8px; }
+
+  section { margin: 44px 0; }
+  section > h2 {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-weight: 600;
+    font-size: 21px;
+    margin: 0 0 18px;
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .step {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    color: var(--accent-ink);
+    display: flex; align-items: center; justify-content: center;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 13px;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+  .step-body h3 { margin: 0 0 5px; font-size: 15.5px; font-weight: 600; }
+  .step-body p { margin: 0; font-size: 14.5px; color: var(--ink-muted); line-height: 1.55; }
+  .step-body code {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.87em;
+    background: var(--code-bg);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    color: var(--ink);
+  }
+  .step-body a { color: var(--accent); }
+
+  .req-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: var(--surface);
+    border: 1px solid var(--surface-edge);
+    border-radius: 12px;
+    padding: 18px 20px;
+    box-shadow: var(--shadow);
+  }
+  .req-row { display: flex; justify-content: space-between; font-size: 14.5px; gap: 16px; }
+  .req-row .k { color: var(--ink-muted); }
+  .req-row .v { font-weight: 500; text-align: right; }
+
+  footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    color: var(--ink-faint);
+    font-size: 13.5px;
+    text-align: center;
+  }
+  footer a { color: var(--accent); }
+</style>
+
+<div class="page">
+  <div class="hero">
+    <div class="hero-icon">BC</div>
+    <h1>Brightspace Companion</h1>
+    <p class="tagline">One dashboard for grades, assignments, and due dates from Brightspace and Gradescope — synced automatically, right on your Mac.</p>
+    <a class="download-button" href="https://github.com/sqhua830/brightspace-companion-app/releases/latest/download/BrightspaceCompanion.dmg">
+      <span class="glyph">⌘</span> Download for Mac
+    </a>
+    <div class="meta-row">
+      <span>v0.1.0</span>
+      <span>Apple Silicon &amp; Intel</span>
+      <span>~175 MB</span>
+    </div>
+  </div>
+
+  <div class="callout">
+    <h2>Before you open it</h2>
+    <p>This app isn't signed with an Apple developer certificate yet, so macOS will say it's from an "unidentified developer" the first time you open it. That's expected — it's not a virus warning, just Apple's default stance on any app that hasn't paid for a certificate.</p>
+    <p>Step 2 below shows you the one-time way past it.</p>
+  </div>
+
+  <section>
+    <h2>Setup</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Install the app</h3>
+          <p>Open the downloaded <code>.dmg</code> and drag Brightspace Companion into your Applications folder.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Open it the first time</h3>
+          <p>In Applications, <strong>right-click</strong> (or Control-click) Brightspace Companion and choose <strong>Open</strong>, then click <strong>Open</strong> again in the dialog that appears. You only need to do this once — after that it opens normally.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Add the Chrome extension</h3>
+          <p>The app needs its browser extension to actually pull your grades from Brightspace and Gradescope. <a href="https://chromewebstore.google.com/detail/usc-brightspace-companion/baebpoigmgdmmlfifneeagokieeilaoe">Install it from the Chrome Web Store.</a></p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h3>Log in and sync</h3>
+          <p>Open the app, add your courses in Settings, then make sure you're logged into Brightspace and Gradescope in Chrome. The extension syncs automatically in the background from there.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Requirements</h2>
+    <div class="req-list">
+      <div class="req-row"><span class="k">macOS</span><span class="v">11 Big Sur or newer</span></div>
+      <div class="req-row"><span class="k">Browser</span><span class="v">Google Chrome</span></div>
+      <div class="req-row"><span class="k">Account</span><span class="v">USC Brightspace login</span></div>
+    </div>
+  </section>
+
+  <footer>
+    Independent, student-built project — not an official USC or D2L Brightspace product.<br>
+    See the <a href="https://sqhua830.github.io/brightspace-companion-legal/">privacy policy</a> for what data goes where.
+  </footer>
+</div>
