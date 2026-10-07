@@ -1,3 +1,8 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Brightspace Companion Download</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -89,6 +94,9 @@
     margin: 0 auto 28px;
   }
 
+  .cta-row { display: flex; gap: 16px; justify-content: center; align-items: flex-start; flex-wrap: wrap; }
+  .cta { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .cta-sub { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 12px; color: var(--ink-faint); }
   .download-button {
     display: inline-flex;
     align-items: center;
@@ -97,15 +105,18 @@
     color: #fff;
     font-family: "Source Sans 3", sans-serif;
     font-weight: 600;
-    font-size: 16px;
-    padding: 14px 28px;
-    border-radius: 12px;
+    font-size: 18px;
+    padding: 18px 34px;
+    border-radius: 14px;
     text-decoration: none;
     box-shadow: var(--shadow);
     transition: transform 0.12s ease;
   }
   .download-button:hover { transform: translateY(-1px); }
   .download-button .glyph { font-size: 18px; }
+  .download-button { min-width: 230px; justify-content: center; }
+  .download-button.extension-button { background: #1a73e8; }
+  .download-button.extension-button:hover { background: #1765cc; }
 
   .meta-row {
     margin-top: 14px;
@@ -205,15 +216,28 @@
   }
   footer a { color: var(--accent); }
 </style>
+</head>
+<body>
 
 <div class="page">
   <div class="hero">
     <div class="hero-icon">BC</div>
     <h1>Brightspace Companion</h1>
     <p class="tagline">One dashboard for grades, assignments, and due dates from Brightspace and Gradescope — synced automatically, right on your Mac.</p>
-    <a class="download-button" href="https://github.com/sqhua830/brightspace-companion-app/releases/latest/download/BrightspaceCompanion.dmg">
-      <span class="glyph">⌘</span> Download for Mac
-    </a>
+    <div class="cta-row">
+      <div class="cta">
+        <a class="download-button" href="https://github.com/sqhua830/brightspace-companion-app/releases/latest/download/BrightspaceCompanion.dmg">
+          <span class="glyph">⌘</span> Download for Mac
+        </a>
+        <span class="cta-sub">1 · The app</span>
+      </div>
+      <div class="cta">
+        <a class="download-button extension-button" href="https://chromewebstore.google.com/detail/usc-brightspace-companion/baebpoigmgdmmlfifneeagokieeilaoe">
+          <span class="glyph">＋</span> Add to Chrome
+        </a>
+        <span class="cta-sub">2 · The extension</span>
+      </div>
+    </div>
     <div class="meta-row">
       <span>v0.1.0</span>
       <span>Apple Silicon &amp; Intel</span>
@@ -275,3 +299,6 @@
     See the <a href="https://sqhua830.github.io/brightspace-companion-legal/">privacy policy</a> for what data goes where.
   </footer>
 </div>
+
+</body>
+</html>
